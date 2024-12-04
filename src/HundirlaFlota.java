@@ -65,27 +65,27 @@ public class HundirlaFlota {
      */
     static void mostrarNave(int[][] tablero,int coordenada1, int coordenada2) {
         if (saberEsNave(tablero[coordenada1][coordenada2])) { // Verificamos si es una nave
-            tipoNave(tablero, coordenada1, coordenada2);
+            tipoNave(tablero[coordenada1][coordenada2], coordenada1, coordenada2);
         }}
 
     /**
      * Obtener el tipo de nave
-     * @param tablero el tablero del que queremos en el que queremos verificarlo
+     * @param valorActual el valor del tablero que es nave
      * @param coordenada1 la primera coordenada
      * @param coordenada2 la segunda coordenada
      */
-    static void tipoNave(int[][] tablero, int coordenada1, int coordenada2) {
-        switch (tablero[coordenada1][coordenada2]) { // Luego dependiendo del tipo de nave mostramos una cosa u otra
-            case 1-> System.out.println("La nave es un barco");
-            case 2-> System.out.println("La nave es un barco más grande");
-            case 4-> System.out.println("La nave es un portaaviones");
+    static void tipoNave(int valorActual,int coordenada1, int coordenada2) {
+        switch (valorActual) { // Luego dependiendo del tipo de nave mostramos una cosa u otra
+            case 1-> System.out.println("La nave en las coordenadas " + coordenada1 + " " + coordenada2 + " es un barco");
+            case 2-> System.out.println("La nave en las coordenadas " + coordenada1 + " " + coordenada2 + " es un barco más grande");
+            case 4-> System.out.println("La nave en las coordenadas " + coordenada1 + " " + coordenada2 + " es un portaaviones");
             default-> System.out.println("No se conoce esta ubicacion");
         }
     }
 
     static void mostrarNaveCoordenadaLetra(int[][] tablero,int coordenada1, int coordenada2) {
         if (saberEsNave(tablero[coordenada1][coordenada2])) { // Verificamos si es una nave
-            tipoNave(tablero, coordenada1, coordenada2);
+            tipoNave(tablero[coordenada1][coordenada2], coordenada1, coordenada2);
         }}
 
     /**
