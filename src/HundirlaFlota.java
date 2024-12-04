@@ -41,7 +41,7 @@ public class HundirlaFlota {
         }
     }
     static void mostrarTocado(int[][] tablero, int coordenada1, int coordenada2) {
-        if (saberEsNave(tablero,coordenada1,coordenada2)) {
+        if (saberEsNave(tablero[coordenada1][coordenada2])) {
             System.out.println("Coordenadas " + coordenada1 + " " + coordenada2 + " tocado");
         }
         else {
@@ -50,13 +50,11 @@ public class HundirlaFlota {
     }
     /**
      * Nos indica si es nave
-     * @param tablero el tablero en el queremos comprobar si es una nave
-     * @param coordenada1 la primera coordenada
-     * @param coordenada2 la segunda coordenada
+     * @param valorCoordenada el valor que hay en la coordenada
      * @return true si es nave false si no
      */
-    static boolean saberEsNave(int[][] tablero, int coordenada1, int coordenada2) {
-        return tablero[coordenada1][coordenada2] > 0;
+    static boolean saberEsNave(int valorCoordenada) {
+        return valorCoordenada > 0;
     }
 
     /**
@@ -66,22 +64,28 @@ public class HundirlaFlota {
      * @param coordenada2 le indicamos la segunda coordenada
      */
     static void mostrarNave(int[][] tablero,int coordenada1, int coordenada2) {
-        if (saberEsNave(tablero,coordenada1,coordenada2)) { // Verificamos si es una nave
-            switch (tablero[coordenada1][coordenada2]) { // Luego dependiendo del tipo de nave mostramos una cosa u otra
-                case 1-> System.out.println("La nave en las coordenadas " + coordenada1 + " " + coordenada2 + " es un barco");
-                case 2-> System.out.println("La nave en las coordenadas " + coordenada1 + " " + coordenada2 + " es un barco más grande");
-                case 4-> System.out.println("La nave en las coordenadas " + coordenada1 + " " + coordenada2 + " es un portaaviones");
-                default-> System.out.println("No se conoce esta ubicacion");
-            }
+        if (saberEsNave(tablero[coordenada1][coordenada2])) { // Verificamos si es una nave
+            tipoNave(tablero, coordenada1, coordenada2);
         }}
+
+    /**
+     * Obtener el tipo de nave
+     * @param tablero el tablero del que queremos en el que queremos verificarlo
+     * @param coordenada1 la primera coordenada
+     * @param coordenada2 la segunda coordenada
+     */
+    static void tipoNave(int[][] tablero, int coordenada1, int coordenada2) {
+        switch (tablero[coordenada1][coordenada2]) { // Luego dependiendo del tipo de nave mostramos una cosa u otra
+            case 1-> System.out.println("La nave es un barco");
+            case 2-> System.out.println("La nave es un barco más grande");
+            case 4-> System.out.println("La nave es un portaaviones");
+            default-> System.out.println("No se conoce esta ubicacion");
+        }
+    }
+
     static void mostrarNaveCoordenadaLetra(int[][] tablero,int coordenada1, int coordenada2) {
-        if (saberEsNave(tablero,coordenada1,coordenada2)) { // Verificamos si es una nave
-            switch (tablero[coordenada1][coordenada2]) { // Luego dependiendo del tipo de nave mostramos una cosa u otra
-                case 1-> System.out.println("La nave en las coordenadas " + coordenadaALetra(coordenada1) + " " + coordenadaALetra(coordenada2) + " es un barco");
-                case 2-> System.out.println("La nave en las coordenadas " + coordenadaALetra(coordenada1) + " " + coordenadaALetra(coordenada2) + " es un barco más grande");
-                case 4-> System.out.println("La nave en las coordenadas " + coordenadaALetra(coordenada1) + " " + coordenadaALetra(coordenada2) + " es un portaaviones");
-                default-> System.out.println("No se conoce esta ubicacion");
-            }
+        if (saberEsNave(tablero[coordenada1][coordenada2])) { // Verificamos si es una nave
+            tipoNave(tablero, coordenada1, coordenada2);
         }}
 
     /**
