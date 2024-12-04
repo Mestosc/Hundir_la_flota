@@ -14,7 +14,7 @@ public class HundirlaFlota {
                 {0,1,0,0,0}
                 };
         recorrerTablero(barcos);
-       mostrarTocado(barcos,0,0);
+       mostrarTocado(barcos,2,4);
        mostrarNaveCoordenadaLetra(barcos,coordenadaANumero('D'), coordenadaANumero('E'));
     }
 
@@ -137,5 +137,3 @@ public class HundirlaFlota {
     }
 
 }
-
-
