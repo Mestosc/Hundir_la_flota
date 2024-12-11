@@ -4,6 +4,10 @@
  * @version 1.0
  */
 public class HundirlaFlota {
+    /**
+     * Funcion principal
+     * @param args parametros del juego
+     */
     public static void main(String[] args) {
         int[][] barcos =
                 {
@@ -40,6 +44,13 @@ public class HundirlaFlota {
             }
         }
     }
+
+    /**
+     * Muestra si una nave ha sido tocada
+     * @param tablero el tablero en el que queremos mostrar eso
+     * @param coordenada1 la primera coordenada
+     * @param coordenada2 la segunda coordenada
+     */
     static void mostrarTocado(int[][] tablero, int coordenada1, int coordenada2) {
         if (saberEsNave(tablero[coordenada1][coordenada2])) {
             System.out.println("Coordenadas " + coordenada1 + " " + coordenada2 + " tocado");
@@ -83,9 +94,15 @@ public class HundirlaFlota {
         }
     }
 
+    /**
+     * Mostrar la coordenada de naves para cuando usamos coordenadas en letras
+     * @param tablero el tablero del que hacer la busqueda
+     * @param coordenada1 la primera coordenada
+     * @param coordenada2 la segunda coordenada
+     */
     static void mostrarNaveCoordenadaLetra(int[][] tablero,int coordenada1, int coordenada2) {
         if (saberEsNave(tablero[coordenada1][coordenada2])) { // Verificamos si es una nave
-            tipoNave(tablero[coordenada1][coordenada2], coordenada1, coordenada2);
+            tipoNave(tablero[coordenada1][coordenada2], coordenadaALetra(coordenada1), coordenadaALetra(coordenada2));
         }}
 
     /**
@@ -116,6 +133,12 @@ public class HundirlaFlota {
 
         }
     }
+
+    /**
+     * Coordenada a letra
+     * @param num le pasamos la coordenada en letra
+     * @return Nos devuelve la letra que sea
+     */
     static char coordenadaALetra(int num) {
         switch (num) {
             case 0 -> {
