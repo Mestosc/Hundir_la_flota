@@ -19,7 +19,7 @@ public class HundirlaFlota {
                 };
         recorrerTablero(barcos);
        mostrarTocado(barcos,2,4);
-       mostrarNaveCoordenadaLetra(barcos,coordenadaANumero('D'), coordenadaANumero('E'));
+       mostrarNaveCoordenada(barcos,2,3);
     }
 
     /**
@@ -40,7 +40,7 @@ public class HundirlaFlota {
     static void recorrerTableroConLetra(int[][] tablero) {
         for (int i = 0; i < tablero.length; i++) {
             for (int j = 0; j < tablero[i].length; j++) {
-                mostrarNaveCoordenadaLetra(tablero,i,j);
+                mostrarNaveCoordenada(tablero,i,j);
             }
         }
     }
@@ -65,7 +65,8 @@ public class HundirlaFlota {
      * @return true si es nave false si no
      */
     static boolean saberEsNave(int valorCoordenada) {
-        return valorCoordenada > 0;
+        return valorCoordenada > 0; /* Devolvemos el valor booleano de si valor coordenada es mayor que 0 es decir d
+        devolvemos false si no es mayor que 0 en caso contrario devolvemos true*/
     }
 
     /**
@@ -80,7 +81,7 @@ public class HundirlaFlota {
         }}
 
     /**
-     * Obtener el tipo de nave
+     * Obtener el tipo de nave, tambien muestra la coordenada
      * @param valorActual el valor del tablero que es nave
      * @param coordenada1 la primera coordenada
      * @param coordenada2 la segunda coordenada
@@ -95,14 +96,14 @@ public class HundirlaFlota {
     }
 
     /**
-     * Mostrar la coordenada de naves para cuando usamos coordenadas en letras
+     * Mostrar la coordenada de naves para cuando usamos coordenadas
      * @param tablero el tablero del que hacer la busqueda
      * @param coordenada1 la primera coordenada
      * @param coordenada2 la segunda coordenada
      */
-    static void mostrarNaveCoordenadaLetra(int[][] tablero,int coordenada1, int coordenada2) {
+    static void mostrarNaveCoordenada(int[][] tablero, int coordenada1, int coordenada2) {
         if (saberEsNave(tablero[coordenada1][coordenada2])) { // Verificamos si es una nave
-            tipoNave(tablero[coordenada1][coordenada2], coordenadaALetra(coordenada1), coordenadaALetra(coordenada2));
+            tipoNave(tablero[coordenada1][coordenada2], coordenada1, coordenada2);
         }}
 
     /**
